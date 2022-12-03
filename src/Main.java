@@ -1,114 +1,50 @@
-import Car.Car;
-import Car.CargoCar;
-import Car.Transport;
-import Car.Bus;
-import Car.Competing;
-import Driver.Driver;
 import Driver.DriverB;
-import Driver.DriverC;
-import Driver.DriverD;
+import Car.Bus;
+import Car.Car;
+import Car.Truck;
+
+
+
+
 public class Main {
     public static void main(String[] args) {
-
-        Car Lada=new Car("Lada","Vesta","180");
-        System.out.println(Lada.toString());
-        Lada.startMoving();
-        Lada.stopMoving();
-        Lada.bestTime();
-        Lada.maxSpee();
-        Lada.pitStop();
-        Car Huyndai=new Car("Huyndai","Sanata","240");
-        System.out.println(Huyndai.toString());
-        Huyndai.startMoving();
-        Huyndai.stopMoving();
-        Huyndai.bestTime();
-        Huyndai.maxSpee();
-        Huyndai.pitStop();
-        Car Mazda= new Car("Mazda","cx-6","300");
-        System.out.println(Mazda.toString());
-        Mazda.startMoving();
-        Mazda.stopMoving();
-        Mazda.bestTime();
-        Mazda.maxSpee();
-        Mazda.pitStop();
-        Car BMW=new Car("BMW","M-6","500");
-        System.out.println(BMW.toString());
-        BMW.startMoving();
-        BMW.stopMoving();
-        BMW.bestTime();
-        BMW.maxSpee();
-        BMW.pitStop();
+        Car lada = new Car("Lada", "Vesta", 2.0);
+        Car kia = new Car("KIA", "Cerato", 2.5);
+        Car skoda = new Car("Skoda", "Octavia", 3.0);
+        Car audi = new Car("Audi", "A3", 3.0);
+        lada.printCar();
+        kia.printCar();
+        skoda.printCar();
+        audi.printCar();
 
 
+        Bus man = new Bus("MAN", "Lion’s Coach", 5.0);
+        Bus gaz = new Bus("GAZ", "Вектор Next", 3.3);
+        Bus maz = new Bus("MAZ", "232", 3.5);
+        Bus setra = new Bus("Setra", "Provate", 3.8);
+        man.printBus();
+        gaz.printBus();
+        maz.printBus();
+        setra.printBus();
 
-        Bus Zaz=new Bus("Zaz","xz232","150");
-        System.out.println(Zaz.toString());
-        Zaz.startMoving();
-        Zaz.stopMoving();
-        Zaz.bestTime();
-        Zaz.maxSpee();
-        Zaz.pitStop();
-        Bus Honda=new Bus("Honda","fg12","180");
-        System.out.println(Honda.toString());
-        Honda.startMoving();
-        Honda.stopMoving();
-        Honda.bestTime();
-        Honda.maxSpee();
-        Honda.pitStop();
-        Bus Ford=new Bus("Ford","www222","200");
-        System.out.println(Ford.toString());
-        Ford.startMoving();
-        Ford.stopMoving();
-        Ford.bestTime();
-        Ford.maxSpee();
-        Ford.pitStop();
-        Bus Shkoda=new Bus("Shkoda","xz232","180");
-        System.out.println();
-        Shkoda.startMoving();
-        Shkoda.stopMoving();
-        Shkoda.bestTime();
-        Shkoda.maxSpee();
-        Shkoda.pitStop();
+
+        Truck iveco = new Truck("Iveco", "MP 260E38 6x6", 12.0);
+        Truck mon = new Truck("MON", "41.410 8x4", 10.0);
+        Truck volvo = new Truck("VOLVO", "FMX-500-10X4", 13.0);
+        Truck mercedes = new Truck("Mercedes-Benz", "Atego 815", 4.2);
+        iveco.printTruck();
+        mon.printTruck();
+        volvo.printTruck();
+        mercedes.printTruck();
+
+
+        Car car = new Car("Kia", "K5", 3.0);
+        DriverB driverB = new DriverB("Роман", 10,car);
+        System.out.println(driverB);
 
 
 
-        CargoCar Zil=new CargoCar("Zil","xz232","150");
-        System.out.println(Zil.toString());
-        Zil.startMoving();
-        Zil.stopMoving();
-        Zil.bestTime();
-        Zil.maxSpee();
-        Zil.pitStop();
-        CargoCar Yral=new CargoCar("Yral","xz232","150");
-        System.out.println(Yral.toString());
-        Yral.startMoving();
-        Yral.stopMoving();
-        Yral.bestTime();
-        Yral.maxSpee();
-        Yral.pitStop();
-        CargoCar Mercedez=new CargoCar("Mercedez","xz232","210");
-        System.out.println(Mercedez.toString());
-        Mercedez.startMoving();
-        Mercedez.stopMoving();
-        Mercedez.bestTime();
-        Mercedez.maxSpee();
-        Mercedez.pitStop();
-        CargoCar Sayong=new CargoCar("Sayong","xz232","150");
-        System.out.println(Sayong.toString());
-        Sayong.startMoving();
-        Sayong.stopMoving();
-        Sayong.bestTime();
-        Sayong.maxSpee();
-        Sayong.pitStop();
-
-
-        DriverB <Car>driverB=new DriverB<Car>("Ivan",true,4);
-        System.out.println( driverB.getCarMassage(new Car("Lada","Vesta","180")));
-        DriverC<CargoCar>driverC=new DriverC<CargoCar>("Danil",true,3);
-        System.out.println(driverC.getCarMassage(new CargoCar("Zil","xz232","150")));
-        DriverD<Bus>driverD=new DriverD<Bus>("Danil",true,7);
-        System.out.println(driverD.getCarMassage(new Bus("Honda","fg12","180")));
 
     }
-
 }
+

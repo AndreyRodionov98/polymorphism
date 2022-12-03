@@ -1,46 +1,43 @@
 package Car;
 
-public class Car extends Transport implements Competing {
-    private Integer bestTime;
-    private Integer pitStop;
-    private Integer maxSpee;
+import java.util.concurrent.ThreadLocalRandom;
 
-    public Car(String brand, String model, String engineVolume) {
+public class Car extends Transport implements Competing{
+
+    public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
 
-    @Override
-    public void startMoving() {
-        System.out.println("стартуем");
+    public void startDriving() {
+        System.out.printf("Автомобиль %s %s начни движение",
+                this.getBrand(),
+                this.getModel());
+    }
+    public void finishDriving() {
+        System.out.printf("Автомобиль %s %s закончи движение",
+                this.getBrand(),
+                this.getModel());
     }
 
     @Override
-    public void stopMoving() {
-        System.out.println("тормозим");
-
+    public void pitStop() {
+        System.out.printf("Автомобиль %s %s Пит-Стоп! ",
+                this.getBrand(),
+                this.getModel());
     }
 
     @Override
-    public String toString() {
-        return "марка авто - "+getBrand()+", модель - "+
-                getModel()+", объем двигателя - "+ getEngineVolume()+" л.с";
+    public int bestLapTime() {return ThreadLocalRandom.current().nextInt(1, 10);
     }
 
     @Override
-    public boolean pitStop() {
-        System.out.println("pitstop-"+pitStop);
-        return false;
+    public int maximumSpeed() {return  ThreadLocalRandom.current().nextInt(1,400);
     }
 
-    @Override
-    public double bestTime() {
-        System.out.println("besttime"+bestTime);
-        return 2.35;
-    }
-
-    @Override
-    public int maxSpee() {
-        System.out.println("maxspeed"+maxSpee);
-        return 210;
+    public void printCar() {
+        System.out.println("Легковой автомобиль: " + getBrand()+
+                ", модель: " + getModel() +
+                ", объем двигателя: " + getEngineVolume() + " л");
     }
 }
+

@@ -1,53 +1,53 @@
 package Driver;
 
-import java.util.Objects;
+import Car.Transport;
 
 
-public abstract class   Driver {
-    private String fullName;
-    private boolean driverLicense;
-    private Integer experience;
 
-    public Driver(String fullName, boolean driverLicense, int experience) {
-        this.fullName =  fullName;
-        this.driverLicense = driverLicense;
-        this.experience = experience;
+public abstract class Driver <T extends Transport> {
+    private final String fullName;
+    private final String category;
+    private final int drivingExperience;
+    private final T car;
+
+    public Driver(String fullName, String category, int drivingExperience, T car) {
+        this.fullName = fullName;
+        this.category = category;
+        this.drivingExperience = drivingExperience;
+        this.car = car;
     }
-
-
-
     public String getFullName() {
         return fullName;
     }
 
-    public boolean isDriverLicense() {
-        return driverLicense;
+    public String getCategory() {
+        return category;
     }
 
-    public int getExperience() {
-        return experience;
+    public int getDrivingExperience() {
+        return drivingExperience;
     }
 
-    public void setDriverLicense(boolean driverLicense) {
-        this.driverLicense = driverLicense;
+    public void startDriving() {
+        System.out.printf("Водитель %s начал двигаться", this.fullName);
+        this.car.startDriving();
+    }
+
+    public void finishDriving() {
+        System.out.printf("Водитель %s закончил движение", this.fullName);
+        this.car.finishDriving();
+    }
+
+    public void refill() {
+        System.out.printf("Водитель %s заправляет  %s %s",
+                this.fullName, this.car.getBrand(), this.car.getModel());
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Driver driver = (Driver) o;
-        return driverLicense == driver.driverLicense && experience == driver.experience && Objects.equals(fullName, driver.fullName);
+    public String toString() {
+        return String.format(
+                "Водитель %s управляет автомобилем %s %s и будет участвовать в заезде",
+                this.fullName, this.car.getBrand(), this.car.getModel());
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(fullName, driverLicense, experience);
-    }
-
-
-    public abstract void startMoving();
-    public abstract void stopMoving();
-    public abstract void refuelCar();
-
 }
+
