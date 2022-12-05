@@ -1,11 +1,12 @@
 package Car;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Car extends Transport implements Competing{
+    private BodyType bodyType;
 
-    public Car(String brand, String model, double engineVolume) {
+    public Car(String brand, String model, double engineVolume, BodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType= bodyType;
     }
 
     public void startDriving() {
@@ -26,6 +27,13 @@ public class Car extends Transport implements Competing{
                 this.getModel());
     }
 
+    public void printType(){
+    if (bodyType==null){
+            System.out.println("недостаточно данных");
+            return;
+        }
+    }
+
     @Override
     public int bestLapTime() {return ThreadLocalRandom.current().nextInt(1, 10);
     }
@@ -37,7 +45,7 @@ public class Car extends Transport implements Competing{
     public void printCar() {
         System.out.println("Легковой автомобиль: " + getBrand()+
                 ", модель: " + getModel() +
-                ", объем двигателя: " + getEngineVolume() + " л");
+                ", объем двигателя: " + getEngineVolume() + " л"+", "+bodyType);
     }
 }
 

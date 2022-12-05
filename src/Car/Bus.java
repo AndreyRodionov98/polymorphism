@@ -4,10 +4,13 @@ package Car;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Bus extends Transport {
+    private Size size;
 
-    public Bus( String brand , String model, double engineVolume) {
+    public Bus( String brand , String model, double engineVolume,Size size) {
         super (brand, model, engineVolume);
+    this.size=size;
     }
+
 
     @Override
     public void startDriving() {
@@ -38,10 +41,20 @@ public class Bus extends Transport {
     public int maximumSpeed() { return ThreadLocalRandom.current().nextInt(1, 300);
     }
 
+    @Override
+    public void printType() {
+        if (size==null){
+            System.out.println("данных недостаточно");
+        return;
+        }
+
+
+    }
+
     public void printBus() {
         System.out.println("Автобус: " + getBrand()+
                 ", модель: " + getModel() +
-                ", объем двигателя: " + getEngineVolume() + " л");
+                ", объем двигателя: " + getEngineVolume() + " л"+", "+size);
     }
 
 }

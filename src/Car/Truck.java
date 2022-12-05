@@ -2,9 +2,11 @@ package Car;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Truck extends Transport implements Competing {
+    private LoadCapacity loadCapacity;
 
-    public Truck(String brand, String model, double engineVolume) {
+    public Truck(String brand, String model, double engineVolume,LoadCapacity loadCapacity) {
         super(brand, model, engineVolume);
+        this.loadCapacity=loadCapacity;
     }
 
 
@@ -37,10 +39,19 @@ public class Truck extends Transport implements Competing {
     public int maximumSpeed () {return ThreadLocalRandom.current().nextInt(1, 250);
     }
 
+    @Override
+    public void printType() {
+        if (loadCapacity==null){
+            System.out.println("данных недостаточно");
+            return;
+        }
+
+    }
+
     public void printTruck () {
         System.out.println("Грузовик: " + getBrand() +
                 ", модель: " + getModel() +
-                ", объем двигателя: " + getEngineVolume() + " л");
+                ", объем двигателя: " + getEngineVolume() + " л"+", "+loadCapacity);
     }
 }
 
