@@ -35,6 +35,11 @@ public class Car extends Transport implements Competing{
     }
 
     @Override
+    public boolean service() {
+        return Math.random()>0.5;
+    }
+
+    @Override
     public int bestLapTime() {return ThreadLocalRandom.current().nextInt(1, 10);
     }
 

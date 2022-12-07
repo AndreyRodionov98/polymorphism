@@ -51,6 +51,13 @@ public class Bus extends Transport {
 
     }
 
+    @Override
+    public boolean service() {
+        System.out.println("Автобус"+getBrand()+getModel()+"в диагностике не требуется");
+
+        return true;
+    }
+
     public void printBus() {
         System.out.println("Автобус: " + getBrand()+
                 ", модель: " + getModel() +

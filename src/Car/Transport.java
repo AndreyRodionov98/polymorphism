@@ -42,6 +42,7 @@ public abstract class Transport{
 
     public abstract int maximumSpeed();
     public abstract void printType();
+    public abstract boolean service();
 
 }
 
