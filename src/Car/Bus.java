@@ -58,6 +58,11 @@ public class Bus extends Transport {
         return true;
     }
 
+    @Override
+    public void repair() {
+        System.out.println("Машина "+getBrand()+getModel()+" исправна");
+    }
+
     public void printBus() {
         System.out.println("Автобус: " + getBrand()+
                 ", модель: " + getModel() +

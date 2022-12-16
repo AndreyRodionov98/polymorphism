@@ -40,6 +40,11 @@ public class Car extends Transport implements Competing{
     }
 
     @Override
+    public void repair() {
+        System.out.println("Машина "+getBrand()+getModel()+" исправна");
+    }
+
+    @Override
     public int bestLapTime() {return ThreadLocalRandom.current().nextInt(1, 10);
     }
 

@@ -10,8 +10,9 @@ import Car.Car;
 
 public class DriverD extends Driver<Bus> {
 
-    public DriverD(String fullName, int drivingExperience, Bus car) {
-        super(fullName, "D", drivingExperience, car);
+    public DriverD(String fullName, String category,int drivingExperience, Bus car) {
+        super(fullName, category, drivingExperience, car);
     }
+
 }
 
